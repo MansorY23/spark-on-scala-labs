@@ -23,8 +23,8 @@ object filter {
       .read
       .format("kafka")
       .option("kafka.bootstrap.servers", "spark-master-1:6667")
-      .option("subscribePattern", "lab04_input_data")
-      .option("startingOffsets", s"$param_prefix")
+      .option("subscribePattern", s"$param_topic_name")
+      .option("startingOffsets", s"$param_offset")
       .load()
 
     val kafka_logs = kafka_topic.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
@@ -50,14 +50,14 @@ object filter {
     view_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"hdfs:///user/arseniy.ahtaryanov/visits/view")
+      .option("path", s"hdfs:///user/arseniy.ahtaryanov/$param_prefix")
       .mode("overwrite")
       .save()
 
     buy_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"hdfs:///user/arseniy.ahtaryanov/visits/buy")
+      .option("path", s"hdfs:///user/arseniy.ahtaryanov/$param_prefix")
       .mode("overwrite")
       .save()
 
