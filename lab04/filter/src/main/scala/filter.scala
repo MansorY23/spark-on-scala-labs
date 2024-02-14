@@ -23,7 +23,7 @@ object filter {
       .read
       .format("kafka")
       .option("kafka.bootstrap.servers", "spark-master-1:6667")
-      .option("subscribePattern", s"$param_topic_name")
+      .option("subscribePattern", s"${param_topic_name.toInt}")
       .option("startingOffsets", s"$param_offset")
       .load()
 
