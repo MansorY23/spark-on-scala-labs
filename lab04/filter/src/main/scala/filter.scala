@@ -50,14 +50,14 @@ object filter {
     view_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"hdfs:///user/arseniy.ahtaryanov/$param_prefix")
+      .option("path", s"file:///user/arseniy.ahtaryanov/$param_prefix")
       .mode("overwrite")
       .save()
 
     buy_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"hdfs:///user/arseniy.ahtaryanov/${param_prefix}")
+      .option("path", s"file:///user/arseniy.ahtaryanov/${param_prefix}")
       .mode("overwrite")
       .save()
 
