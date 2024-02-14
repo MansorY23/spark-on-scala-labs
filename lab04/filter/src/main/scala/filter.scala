@@ -17,7 +17,7 @@ object filter {
 
     val param_topic_name: String = spark.sparkContext.getConf.get("spark.filter.topic_name")
     val param_offset: String = spark.sparkContext.getConf.get("spark.filter.offset")
-    val param_prefix: String = spark.sparkContext.getConf.get("spark.filter.output_dir_prefix")
+    val param_prefix: String = spark.sparkContext.getConf.get("spark.filter.output_dir_prefix").replaceAll("hdfs:///user/arseniy.ahtaryanov/", "")
 
     val kafka_topic: DataFrame = spark
       .read
@@ -57,7 +57,7 @@ object filter {
     buy_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"hdfs:///user/arseniy.ahtaryanov/$param_prefix")
+      .option("path", s"hdfs:///user/arseniy.ahtaryanov/${param_prefix}")
       .mode("overwrite")
       .save()
 
