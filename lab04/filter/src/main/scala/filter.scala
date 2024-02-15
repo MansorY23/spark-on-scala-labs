@@ -60,12 +60,14 @@ object filter {
       .format("json")
       .partitionBy("p_date")
       .option("path", s"$new_prefix/view")
+      .mode("overwrite")
       .save()
 
     df.filter(col("event_type") === "buy").write
       .format("json")
       .partitionBy("p_date")
       .option("path", s"$new_prefix/buy")
+      .mode("overwrite")
       .save()
     // file:///tmp//logs/sb1laba04/arseniy.ahtaryanov/visits-offset
     //
