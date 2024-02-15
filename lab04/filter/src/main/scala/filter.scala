@@ -55,19 +55,19 @@ object filter {
         s"file:///user/arseniy.ahtaryanov/$param_prefix"
       }
 
+    val new_prefix = "file:///tmp//logs/sb1laba04/arseniy.ahtaryanov/visits-offset"
     df.filter(col("event_type") === "view").write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"$prefix/view")
-      .mode("overwrite")
+      .option("path", s"$new_prefix/view")
       .save()
 
     df.filter(col("event_type") === "buy").write
       .format("json")
       .partitionBy("p_date")
-      .option("path",s"$prefix/buy")
-      .mode("overwrite")
+      .option("path", s"$new_prefix/buy")
       .save()
-
+    // file:///tmp//logs/sb1laba04/arseniy.ahtaryanov/visits-offset
+    //
   }
 }
