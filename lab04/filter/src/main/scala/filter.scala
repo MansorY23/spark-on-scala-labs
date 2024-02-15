@@ -24,7 +24,11 @@ object filter {
       .format("kafka")
       .option("kafka.bootstrap.servers", "spark-master-1:6667")
       .option("subscribePattern", s"${param_topic_name.toInt}")
-      .option("startingOffsets", s"$param_offset")
+      .option("startingOffsets",
+      if(param_offset.contains("earliest"))
+        param_offset
+      else {
+        "{\"" + param_topic_name + "\":{\"0\":" + param_offset + "}}" })
       .load()
 
     val kafka_logs = kafka_topic.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
@@ -57,7 +61,7 @@ object filter {
     buy_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"file:///user/arseniy.ahtaryanov/${param_prefix}")
+      .option("path", s"file:///user/arseniy.ahtaryanov/$param_prefix")
       .mode("overwrite")
       .save()
 
