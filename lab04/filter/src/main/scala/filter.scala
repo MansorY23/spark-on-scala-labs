@@ -55,7 +55,7 @@ object filter {
         s"file:///user/arseniy.ahtaryanov/$param_prefix"
       }
 
-    val new_prefix = "file://tmp//logs/sb1laba04/arseniy.ahtaryanov/visits-offset"
+    val new_prefix = "file:///tmp//logs/sb1laba04/arseniy.ahtaryanov/visits-offset"
     df.filter(col("event_type") === "view").write
       .format("json")
       .partitionBy("p_date")
