@@ -50,7 +50,7 @@ object filter {
         .withColumn("p_date", col("date").cast("string"))
 
     val prefix =
-      if((param_prefix.contains("file:/")) || param_prefix.contains("hdfs:/"))
+      if((param_prefix.startsWith("file:/")) || param_prefix.startsWith("hdfs:/"))
         s"$param_prefix"
       else {
         s"file:///user/arseniy.ahtaryanov/$param_prefix"
