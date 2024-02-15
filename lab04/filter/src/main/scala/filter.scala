@@ -50,13 +50,13 @@ object filter {
         .withColumn("p_date", col("date").cast("string"))
 
     val prefix =
-      if(param_prefix.contains("user/"))
-        s"file://$param_prefix"
+      if((param_prefix.contains("file://")))
+        s"$param_prefix"
       else {
         s"file:///user/arseniy.ahtaryanov/$param_prefix"
       }
 
-    val new_prefix = "file:///tmp//logs/sb1laba04/arseniy.ahtaryanov/visits-offset"
+    //val new_prefix = "file:///tmp//logs/sb1laba04/arseniy.ahtaryanov/visits-offset"
     df.filter(col("event_type") === "view").write
       .format("json")
       .partitionBy("p_date")
