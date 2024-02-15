@@ -17,7 +17,7 @@ object filter {
 
     val param_topic_name: String = spark.sparkContext.getConf.get("spark.filter.topic_name")
     val param_offset: String = spark.sparkContext.getConf.get("spark.filter.offset")
-    val param_prefix: String = spark.sparkContext.getConf.get("spark.filter.output_dir_prefix").replaceAll("/user/arseniy.ahtaryanov/", "")
+    val param_prefix: String = spark.sparkContext.getConf.get("spark.filter.output_dir_prefix").replaceAll("file:///user/arseniy.ahtaryanov/", "")
 
     val kafka_topic: DataFrame = spark
       .read
@@ -51,17 +51,24 @@ object filter {
     val view_logs = df.filter(col("event_type") === "view")
     val buy_logs = df.filter(col("event_type") === "buy")
 
+    val prefix =
+      if(param_prefix.contains("file:///user"))
+          s"$param_prefix"
+      else {
+        s"file:///user/arseniy.ahtaryanov/$param_prefix"
+      }
+
     view_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"file:///user/arseniy.ahtaryanov/$param_prefix")
+      .option("path", s"$prefix")
       .mode("overwrite")
       .save()
 
     buy_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"file:///user/arseniy.ahtaryanov/$param_prefix")
+      .option("path",s"$prefix")
       .mode("overwrite")
       .save()
 
