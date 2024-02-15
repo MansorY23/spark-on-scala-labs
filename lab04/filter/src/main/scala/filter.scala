@@ -60,14 +60,14 @@ object filter {
     view_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"$prefix")
+      .option("path", s"$prefix/view")
       .mode("overwrite")
       .save()
 
     buy_logs.write
       .format("json")
       .partitionBy("p_date")
-      .option("path",s"$prefix")
+      .option("path",s"$prefix/buy")
       .mode("overwrite")
       .save()
 
