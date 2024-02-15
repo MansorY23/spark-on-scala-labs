@@ -11,6 +11,7 @@ object filter {
   def main(args: Array[String]): Unit = {
     val spark: SparkSession = SparkSession
       .builder()
+      .appName("arseniy_ahtaryanov_lab04")
       .getOrCreate()
     spark.conf.set("spark.sql.session.timeZone", "UTC")
 
@@ -50,7 +51,7 @@ object filter {
 
     val prefix =
       if(param_prefix.contains("user/"))
-        s"file:///$param_prefix"
+        s"file://$param_prefix"
       else {
         s"file:///user/arseniy.ahtaryanov/$param_prefix"
       }
@@ -59,14 +60,14 @@ object filter {
     df.filter(col("event_type") === "view").write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"$new_prefix/view")
+      .option("path", s"$prefix/view")
       .mode("overwrite")
       .save()
 
     df.filter(col("event_type") === "buy").write
       .format("json")
       .partitionBy("p_date")
-      .option("path", s"$new_prefix/buy")
+      .option("path", s"$prefix/buy")
       .mode("overwrite")
       .save()
     // file:///tmp//logs/sb1laba04/arseniy.ahtaryanov/visits-offset
