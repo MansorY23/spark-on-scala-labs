@@ -11,13 +11,12 @@ object filter {
   def main(args: Array[String]): Unit = {
     val spark: SparkSession = SparkSession
       .builder()
-      .appName("lab04_aaa")
       .getOrCreate()
     spark.conf.set("spark.sql.session.timeZone", "UTC")
 
     val param_topic_name: String = spark.sparkContext.getConf.get("spark.filter.topic_name")
     val param_offset: String = spark.sparkContext.getConf.get("spark.filter.offset")
-    val param_prefix: String = spark.sparkContext.getConf.get("spark.filter.output_dir_prefix").replaceAll("file:///user/arseniy.ahtaryanov/", "")
+    val param_prefix: String = spark.sparkContext.getConf.get("spark.filter.output_dir_prefix")
 
     val kafka_topic: DataFrame = spark
       .read
