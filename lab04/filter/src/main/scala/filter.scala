@@ -42,29 +42,27 @@ object filter {
 
     val df_schema = kafka_logs.withColumn("val", from_json(col("value"), schema))
 
-    val df = df_schema.select(col("val.event_type"), col("val.category"), col("val.item_id"),
-        col("val.item_price"), col("val.timestamp"), col("val.uid"))
-      .withColumn("date", date_format((col("timestamp")/1000).cast("timestamp"), "YYYYMMDD"))
-      .withColumn("p_date", col("date").cast("string"))
-
-    val view_logs = df.filter(col("event_type") === "view")
-    val buy_logs = df.filter(col("event_type") === "buy")
+    val df = df_schema.select(col("val.event_type"), col("val.category"),
+        col("val.item_id"), col("val.item_price"),
+        col("val.timestamp"), col("val.uid"))
+        .withColumn("date", date_format((col("timestamp")/1000).cast("timestamp"), "YYYYMMDD"))
+        .withColumn("p_date", col("date").cast("string"))
 
     val prefix =
-      if(param_prefix.contains("file:///user"))
-          s"$param_prefix"
+      if(param_prefix.contains("/user/"))
+        s"file:///$param_prefix"
       else {
         s"file:///user/arseniy.ahtaryanov/$param_prefix"
       }
 
-    view_logs.write
+    df.filter(col("event_type") === "view").write
       .format("json")
       .partitionBy("p_date")
       .option("path", s"$prefix/view")
       .mode("overwrite")
       .save()
 
-    buy_logs.write
+    df.filter(col("event_type") === "buy").write
       .format("json")
       .partitionBy("p_date")
       .option("path",s"$prefix/buy")
