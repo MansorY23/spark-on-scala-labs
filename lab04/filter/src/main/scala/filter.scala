@@ -27,7 +27,7 @@ object filter {
       if(param_offset.contains("earliest"))
         param_offset
       else {
-        "{\"" + param_topic_name + "\":{\"0\":" + param_offset + "}}" })
+        "{\"" + param_topic_name + "\":{\"0\":" + param_offset.toInt + "}}" })
       .load()
 
     val kafka_logs = kafka_topic.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
@@ -49,7 +49,7 @@ object filter {
         .withColumn("p_date", col("date").cast("string"))
 
     val prefix =
-      if(param_prefix.contains("/user/"))
+      if(param_prefix.contains("user/"))
         s"file:///$param_prefix"
       else {
         s"file:///user/arseniy.ahtaryanov/$param_prefix"
