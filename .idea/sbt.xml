@@ -12,6 +12,16 @@
         </option>
         <option name="sbtVersion" value="1.5.8" />
       </SbtProjectSettings>
+      <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/lab04b/agg" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/lab04b/agg" />
+            <option value="$PROJECT_DIR$/lab04b/agg/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.5.8" />
+      </SbtProjectSettings>
     </option>
   </component>
 </project>
