@@ -28,7 +28,7 @@ object filter {
       if(param_offset.contains("earliest"))
         param_offset
       else {
-        "{\"" + param_topic_name + "\":{\"0\":" + param_offset.toInt + "}}" })
+        "{\"" + param_topic_name + "\":{\"0\":" + param_offset + "}}" })
       .load()
 
     val kafka_logs = kafka_topic.selectExpr("CAST(key AS STRING)", "CAST(value AS STRING)")
