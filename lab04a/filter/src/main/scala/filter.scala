@@ -57,7 +57,7 @@ object filter {
       }
 
     //val new_prefix = "file:///tmp//logs/sb1laba04/arseniy.ahtaryanov/visits-offset"
-    df.filter(col("event_type") === "view").write
+    df.filter(col("date") < 20200429 && col("event_type") === "view").write
       .format("json")
       .partitionBy("p_date")
       .option("path", s"$prefix/view")
@@ -66,7 +66,7 @@ object filter {
       .mode("overwrite")
       .save()
 
-    df.filter(col("event_type") === "buy").write
+    df.filter(col("date") < 20200429 && col("event_type") === "buy").write
       .format("json")
       .partitionBy("p_date")
       .option("path", s"$prefix/buy")
