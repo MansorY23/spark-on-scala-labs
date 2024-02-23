@@ -3,6 +3,16 @@
   <component name="ScalaSbtSettings">
     <option name="linkedExternalProjectsSettings">
       <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../lab05sb-spark/users_items" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../lab05sb-spark/users_items" />
+            <option value="$PROJECT_DIR$/../lab05sb-spark/users_items/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.9.9" />
+      </SbtProjectSettings>
+      <SbtProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/lab04/filter" />
         <option name="modules">
           <set>
@@ -18,6 +28,16 @@
           <set>
             <option value="$PROJECT_DIR$/lab04b/agg" />
             <option value="$PROJECT_DIR$/lab04b/agg/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.5.8" />
+      </SbtProjectSettings>
+      <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/lab05/users_items" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/lab05/users_items" />
+            <option value="$PROJECT_DIR$/lab05/users_items/project" />
           </set>
         </option>
         <option name="sbtVersion" value="1.5.8" />
