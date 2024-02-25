@@ -40,8 +40,8 @@ object users_items {
       .count()
       .na.fill(0)
 
-    val last_date = union_df.select(max("date"))
-
+    //val last_date = union_df.select(max("date"))
+    val last_date = 20200430
     if (param_items_update == 0) {
       matrix
         .write
