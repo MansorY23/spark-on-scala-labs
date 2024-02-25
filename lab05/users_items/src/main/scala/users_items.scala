@@ -38,7 +38,7 @@ object users_items {
     .count()
     .na.fill(0)
 
-  val last_date = union_df.select(max("date")).show()
+  val last_date = union_df.select(max("date"))
 
   if (param_items_update == 0) {
     matrix
@@ -52,6 +52,7 @@ object users_items {
       .read
       .format("parquet")
       .option("path", s"$param_output_dir/*")
+      .load()
 
     val final_df = last_matrix.join(matrix, "inner")
     final_df
