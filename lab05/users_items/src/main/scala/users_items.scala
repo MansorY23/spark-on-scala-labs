@@ -46,7 +46,7 @@ object users_items {
       matrix
         .write
         .format("parquet")
-        .option("path", s"hdfs://$param_output_dir/$last_date")
+        .option("path", s"$param_output_dir/$last_date")
         .mode("overwrite")
         .save()
     } else {
@@ -56,8 +56,8 @@ object users_items {
         .option("path", s"$param_output_dir/*")
         .load()
 
-      val final_df = last_matrix.join(matrix, "inner")
-      final_df
+      //val final_df = last_matrix.join(matrix, "inner")
+      matrix
         .write
         .format("parquet")
         .option("path", s"$param_output_dir/$last_date")
