@@ -53,14 +53,14 @@ object users_items {
       val last_matrix = spark
         .read
         .format("parquet")
-        .option("path", s"hdfs://$param_output_dir/*")
+        .option("path", s"$param_output_dir/*")
         .load()
 
       val final_df = last_matrix.join(matrix, "inner")
       final_df
         .write
         .format("parquet")
-        .option("path", s"hdfs://$param_output_dir/$last_date")
+        .option("path", s"$param_output_dir/$last_date")
         .save()
     }
   }
