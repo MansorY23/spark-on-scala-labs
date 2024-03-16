@@ -56,7 +56,7 @@ object users_items {
         .option("path", s"$param_output_dir/*")
         .load()
 
-      //val final_df = last_matrix.join(matrix, "inner")
+      //val final_df = last_matrix.join(matrix, "uid" , "inner")
       matrix
         .write
         .format("parquet")

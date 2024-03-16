@@ -20,7 +20,7 @@
             <option value="$PROJECT_DIR$/lab04/filter/project" />
           </set>
         </option>
-        <option name="sbtVersion" value="1.5.8" />
+        <option name="sbtVersion" value="1.9.7" />
       </SbtProjectSettings>
       <SbtProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/lab04b/agg" />
@@ -38,6 +38,16 @@
           <set>
             <option value="$PROJECT_DIR$/lab05/users_items" />
             <option value="$PROJECT_DIR$/lab05/users_items/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.5.8" />
+      </SbtProjectSettings>
+      <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/lab06" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/lab06" />
+            <option value="$PROJECT_DIR$/lab06/project" />
           </set>
         </option>
         <option name="sbtVersion" value="1.5.8" />
