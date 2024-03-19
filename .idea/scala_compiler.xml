@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ScalaCompilerConfiguration">
-    <profile name="sbt 1" modules="Users.arsa2.lab05sb-spark.users_items,agg,arsa2.lab05sb-spark.users_items,filter,lab04b,lab05sb-spark.users_items,lab06,lab06.users_items,users_items" />
+    <profile name="sbt 1" modules="Users.arsa2.lab05sb-spark.users_items,agg,arsa2.lab05sb-spark.users_items,features,filter,lab04b,lab05sb-spark.users_items,lab06,lab06.users_items,lab07sb-spark.mlproject,mlproject,users_items" />
   </component>
 </project>

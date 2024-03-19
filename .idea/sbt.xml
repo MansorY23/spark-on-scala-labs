@@ -10,6 +10,16 @@
             <option value="$PROJECT_DIR$/../lab05sb-spark/users_items/project" />
           </set>
         </option>
+        <option name="sbtVersion" value="1.9.7" />
+      </SbtProjectSettings>
+      <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/../lab07sb-spark/mlproject" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/../lab07sb-spark/mlproject" />
+            <option value="$PROJECT_DIR$/../lab07sb-spark/mlproject/project" />
+          </set>
+        </option>
         <option name="sbtVersion" value="1.9.9" />
       </SbtProjectSettings>
       <SbtProjectSettings>
@@ -48,6 +58,26 @@
           <set>
             <option value="$PROJECT_DIR$/lab06" />
             <option value="$PROJECT_DIR$/lab06/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.9.7" />
+      </SbtProjectSettings>
+      <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/lab06/features" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/lab06/features" />
+            <option value="$PROJECT_DIR$/lab06/features/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.5.8" />
+      </SbtProjectSettings>
+      <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/lab07/mlproject" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/lab07/mlproject" />
+            <option value="$PROJECT_DIR$/lab07/mlproject/project" />
           </set>
         </option>
         <option name="sbtVersion" value="1.5.8" />
