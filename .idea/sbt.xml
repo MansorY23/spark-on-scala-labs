@@ -23,6 +23,16 @@
         <option name="sbtVersion" value="1.9.9" />
       </SbtProjectSettings>
       <SbtProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/lab01/intro" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/lab01/intro" />
+            <option value="$PROJECT_DIR$/lab01/intro/project" />
+          </set>
+        </option>
+        <option name="sbtVersion" value="1.5.8" />
+      </SbtProjectSettings>
+      <SbtProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/lab04/filter" />
         <option name="modules">
           <set>
